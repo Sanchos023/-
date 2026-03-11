@@ -1,92 +1,23 @@
 ОТЧЕТ
 
+Для генерации файлов с матрицами используется matrix_generation.py, для его запуска нужно указать аргументы 
+командой строки(пр: python matrix_generation.py 200)
+
+Запуск программы на С++ осуществляется путем указывания аргументов командной строки (пр:lab1.exe 200 matA.txt matB.txt result.txt)
+
+###Результаты
+
+| Размер матриц             | 200      | 400       | 1000       | 1600       |
+|---------------------------|----------|-----------|------------|------------|
+| Количество операций       | 16000000 | 128000000 | 2000000000 | 8192000000 |
+| Время выполнения (секунд) | 0.010190 | 0.094726  | 1.941567   | 21.308955  |
 
 
-== MATRIX MULTIPLICATION ===
-
-Size: 3x3
-File A: matA.txt
-File B: matB.txt
-Output: result.txt
-
-Loading matrices from files...
-Matrices loaded successfully
-Matrix size: 3 x 3
-
-Matrix A:
-         1          3          4
-         4          5          6
-         7          8          9
-
-Matrix B:
-         9          8          7
-         6          5          4
-         3          2          1
-
-=== RESULTS ===
-Execution time: 0.000000 seconds
-Operations: 54
-
-Result Matrix C:
-        39         31         23
-        84         69         54
-       138        114         90
-Result saved to file: result.txt
-
-
-
-Matrix size: 4 x 4
-
-Matrix A:
-         1          3          4          3
-         4          5          6          4
-         7          8          9          4
-         4          5          6          3
-
-Matrix B:
-         9          8          7          4
-         6          5          4          5
-         3          2          1          3
-         1          2          3          4
-
-=== RESULTS ===
-Execution time: 0.000000 seconds
-Operations: 128
-
-Result Matrix C:
-        42         37         32         43
-        88         77         66         75
-       142        122        102        111
-        87         75         63         71
-Result saved to file: result.txt
-
-
-Matrix size: 5 x 5
-
-Matrix A:
-         1          3          4          6          7
-         4          5          6          4          6
-         7          8          9          5          7
-         5          3          7          3          7
-         3          6          7          8          5
-
-Matrix B:
-         9          8          7          4          5
-         6          5          4          6          8
-         3          2          1          4         74
-         9          1          6          3          6
-        10         11         23         53         52
-
-=== RESULTS ===
-Execution time: 0.000000 seconds
-Operations: 250
-
-Result Matrix C:
-       163        114        220        427        725
-       180        139        216        400        840
-       253        196        281        498       1159
-       181        149        233        446        949
-       206        131        215        365        889
+xychart-beta
+    title "Зависимость времени от размера матриц"
+    x-axis ["200", "400", "1000", "1600"]
+    y-axis "Время (сек)" 0 --> 25
+    line [0.01019, 0.094726, 1.941567, 21.308955]
 
 === VERIFICATION ===
  Verification passed

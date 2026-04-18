@@ -3,8 +3,8 @@ import sys
 
 def generate_matrices(size):
     """
-    Р“РµРЅРµСЂРёСЂСѓРµС‚ РґРІРµ РєРІР°РґСЂР°С‚РЅС‹Рµ РјР°С‚СЂРёС†С‹ СЂР°Р·РјРµСЂР° size x size
-    Рё СЃРѕС…СЂР°РЅСЏРµС‚ РёС… РІ С„Р°Р№Р»С‹ matA.txt Рё matB.txt
+    Генерирует две квадратные матрицы размера size x size
+    и сохраняет их в файлы matA.txt и matB.txt
     """
     np.random.seed(42) 
     A = np.random.randint(0, 20, (size, size))
@@ -13,23 +13,22 @@ def generate_matrices(size):
     np.savetxt('matA.txt', A, fmt='%d', delimiter=' ')
     np.savetxt('matB.txt', B, fmt='%d', delimiter=' ')
     
-    print(f"РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅС‹ РјР°С‚СЂРёС†С‹ {size}x{size}")
-    print("Р¤Р°Р№Р»С‹: matA.txt, matB.txt")
+    print(f"Сгенерированы матрицы {size}x{size}")
+    print("Файлы: matA.txt, matB.txt")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: python generate.py <СЂР°Р·РјРµСЂ>")
-        print("РџСЂРёРјРµСЂ: python generate.py 200")
+        print("Использование: python generate_matrix.py <размер>")
         sys.exit(1)
     
     try:
         size = int(sys.argv[1])
         if size <= 0:
-            print("РћС€РёР±РєР°: СЂР°Р·РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рј С‡РёСЃР»РѕРј")
+            print("Ошибка: размер должен быть положительным числом")
             sys.exit(1)
         
         generate_matrices(size)
         
     except ValueError:
-        print("РћС€РёР±РєР°: СЂР°Р·РјРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С†РµР»С‹Рј С‡РёСЃР»РѕРј")
+        print("Ошибка: размер должен быть целым числом")
         sys.exit(1)
